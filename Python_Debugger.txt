@@ -1,0 +1,24 @@
+import pdb
+pdb.set_trace()  -> break point
+
+n => next line of code, will execute entire function
+
+c => continue with code execution till next break point or till the end of the code if no break points are set
+
+l => print 3 lines before and 3lines afetr current line
+
+s => step into function => will execute code line by line
+
+b => show the list of break points
+
+b[int] => set break point at line no.(eg b 10)
+
+b[func] => set break point at function name
+
+cl => clear break points
+
+cl[int] =>  clear break point at line number (eg. b 10)
+
+p => print (type variable name)  p(x) 
+
+

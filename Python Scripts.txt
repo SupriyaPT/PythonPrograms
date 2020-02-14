@@ -1,0 +1,122 @@
+How to Run a Shell Command from Python and Get The Output?
+
+	import os
+	cmd = 'wc -l my_text_file.txt > out_file.txt'
+	os.system(cmd)
+
+
+-----
+OR
+------
+
+
+	In Python, often you may want to execute linux command and get the output of the command as string variable. There are multiple ways to execute shell command and get output using Python. A naive way to do that is to execeute the linux command, save the output in file and parse the file.
+
+		
+	import os
+	cmd = 'wc -l my_text_file.txt > out_file.txt'
+	os.system(cmd)
+	Get output from shell command using subprocess
+
+	A better way to get the output from executing a linux command in Python is to use Python module “subprocess”. Here is an example of using “subprocess” to count the number of lines in a file using “wc -l” linux command.
+
+		
+	# import subprocess library
+	>import subprocess
+
+	Launch the shell command that we want to execute using subprocess.Popen function. The arguments to this command is the shell command as a list and specify output and error.
+		
+	>out = subprocess.Popen(['wc', '-l', 'my_text_file.txt'], 
+			   stdout=subprocess.PIPE, 
+			   stderr=subprocess.STDOUT)
+
+	The output from subprocess.Popen is subprocess.Popen object. And this object has number of methods associated with it and we will be using communicate() method to get the standard output and error in case as a tuple.
+
+	Here standard output contains the result from wc -l command and the stderr contains None as there are no errors.
+		
+	>stdout,stderr = out.communicate()
+	>print(stdout)
+		3503 my_text_file.txt
+	>print(stderr)
+	None
+
+
+
+------
+OR
+----
+	import subprocess
+	subprocess.run(["ls", "-l"])
+
+====================================
+
+How to get system platform
+
+	>>> import platform
+	>>> import os
+	>>> print(os.name)
+	posix
+	>>> print(platform.system())
+	Linux
+	>>> print(platform.release())
+	4.15.0-1023-azure
+	>>>
+	
+	
+======================================
+
+How to ssh to remote server and execute command
+
+
+
+========================================
+merge two dictionaries / append one dictionary to another
+>>> d1={"a":1}
+>>> d1.update({'c':3,'d':4})
+>>> d1
+{'a': 1, 'c': 3, 'd': 4}
+
+=====================================
+convert data into dictionary
+
+preferences =[
+	{
+		"settingName": "PathAssistantsEnabled",
+		"settingValue": false
+	},
+	{
+		"settingName": "SocialProfilesEnable",
+		"settingValue": true
+	},
+	{
+		"settingName": "UpgradeInsecureRequestsPref",
+		"settingValue": false
+	]
+
+result_dict = {}
+
+for item in preferences:
+   result_dict[item["settingName"]] = item["settingValue"]
+   
+   
+result : result_dict = {"PathAssistantsEnabled" : false, "SocialProfilesEnable" : true,"UpgradeInsecureRequestsPref" : false   }
+
+=========================
+Python notes :
+
+difference between __init__ and __call__ methods
+
+>>> class foo :
+...     def __init__(self):
+...             print "init"
+...     def __call__(self):
+...             print "call"
+... 
+>>> a = foo()        #__init__
+init
+>>> a()              #__call__
+call
+>>> b = foo
+>>> b()
+init
+<__main__.foo instance at 0x7f2bb71f4e60>

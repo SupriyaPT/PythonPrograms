@@ -1,0 +1,22 @@
+
+To initiate class properties (instance variable)- > use class constructor
+
+__init__(self):   class constructor
+
+self - > Points to the current object created of the class
+
+
+To access  instance variable from outside the class or from within instance method :
+   class_object.variable_name
+   
+   
+To access static variable outside the class or from within constuctor or instance methode or static method
+	class_name.variable_name
+	
+	
+To mark the instance variable private, i.e. so that it is not accessible outside the class
+	
+TestProjectSupriya
+encapsulation
+	
+

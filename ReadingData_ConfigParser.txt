@@ -1,0 +1,19 @@
+A sample configuration file with section “bug_tracker” and three options would look like:
+[bug_tracker]
+url = http://localhost:8080/bugs/
+username = dhellmann
+password = SECRET
+
+
+=========================code
+
+#Importing the modules
+
+import ConfigParser
+
+
+# On Debian, /etc/mysql/debian.cnf contains 'root' a like login and password.
+config = ConfigParser.ConfigParser()
+config.read("/etc/mysql/debian.cnf")
+username = config.get('client', 'user')
+password = config.get('client', 'password')
