@@ -1,0 +1,4 @@
+I am learning Python
+Python is very powerful language
+It supports OOP
+Python is case sensitive
