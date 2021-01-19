@@ -15,3 +15,5 @@ stdin, stdout, stderr = client.exec_command('ls -ltr')
 output = stdout.readlines()
 
 print ('\n'.join(output))
+
+client.close()

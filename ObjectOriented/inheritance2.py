@@ -10,6 +10,7 @@ class Third(First, Second):
     def __init__(self):
         super(Third, self).__init__()
         Second.__init__(self)
+        # super().__init__()
         print( "that's it")
 
 
